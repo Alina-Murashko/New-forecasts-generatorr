@@ -8,17 +8,11 @@ const content = ['JS-станет твоим лучшим другом!','Ста
 
 function generateContent() {
   button.addEventListener('click',() => {
-
-    
-    let newContent = content[generate(0, (content.length + 1))];
+    let newContent = content[generate(0, (content.length - 1))];
     let newPercent = generate(0,100);
-    
-    console.log(newContent);
-    console.log(newPercent);
-    
     currentForecastContent.textContent = '';
     currentForecastPercent.textContent = '';
-    currentForecastContent.textContent = newContent;
+    currentForecastContent.textContent = `Предсказание: ${newContent}`;
     currentForecastPercent.textContent = `Вероятность ${newPercent} %`;
     const saveContent = currentForecastContent.textContent;
     const savePersent = currentForecastPercent.textContent;
@@ -33,7 +27,7 @@ function generateContent() {
 generateContent()
 
 function generate(min,max) {
-  return Math.floor(Math.random * (max - min + 1) + min);
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 
